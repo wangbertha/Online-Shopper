@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" />
+	<title>habitar: login</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+  <meta name="viewport" content="width=device-width" />
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+	<link href="{{ url_for('static', filename='wizard/css/gsdk-base.css') }}" rel="stylesheet" />  
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+  <style>
+      h1,h2,h3,h4,h5,h6{
+        font-family:Raleway;
+      }
+
+      .tab-content label, .tab-content input{
+          font-family:Open Sans;
+      }
+
+      .wizard-card .choice .icon{
+        background-color:#EEE;
+
+      }
+
+       .wizard-card.ct-wizard-blue > ul > li.active a {
+          background-color:#E9573F;
+
+      }
+
+      .btn-warning.btn-fill, .btn-warning.btn-fill:hover, .btn-warning.btn-fill:focus{
+          background-color:#E9573F;
+          border-color:#E9573F;
+
+
+      }
+
+      .emoticon{
+        height:40px; 
+        display:inline-text;
+
+      }
+
+  </style>
+
+
+</head>
+
+
+
+<body>
+<div class="image-container set-full-height" style="background-color: #A4Dbde">
+    <!--   Big container   -->
+    <div class="container" >
+        <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+           
+            <!--      Wizard container        -->   
+            <div class="wizard-container" > 
+                <form action="" method="post">
+                <div class="card wizard-card ct-wizard-blue" id="wizard">
+                
+                
+                    	<div class="wizard-header">
+                        	<h3>
+                        	   Welcome to <b>Habitar</b>!  <br>
+                        	   <small>Every big dream starts with small steps.</small>
+                        	</h3>
+                    	</div>
+                    	<ul>
+                            <li><a href="#login" data-toggle="tab" style="font-size:16px">login!</a></li>
+                       
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="login">
+                              <div class="row">
+                              {% if not session.username %}
+                                  <h4 class="info-text">Let's Get Going!</h4>                                              {% with messages = get_flashed_messages() %} 
+  {% if messages %}<!--  code that flashes the user in case of invalid pass-->
+      <!-- <ul class=flashes> -->
+    {% for message in messages %}
+      <h6 class = "text-center"> {{ message }} </h6>
+    {% endfor %}
+    <!-- </ul> -->
+  {% endif %}
+{% endwith %}
+
+                                  <div class="col-sm-10 col-sm-offset-1">
+
+                                    <div class="form-group">
+                                        <label for="login-username">Username</label>
+                                        <input type="text" class="form-control" id="login-username" name='login-username' placeholder="User">
+
+                                            <label for="login-password">Password</label>
+                                        <input type="password" class="form-control" id="login-password" name='login-password' placeholder="Password">
+                                      </div>
+                                       <input type='submit' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Login' />
+                                        <a href="{{ url_for('.register') }}" target="_blank"class='btn btn-finish btn-fill btn-info btn-wd btn-sm'>Register</a> <!-- Need to fix this to make it a bigger size -->
+                                       <div class="pull-right">
+                                        <a class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' href="#"> Facebook</a>
+                                        <a class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' href="#"> Twitter</a>
+                                         <a class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' href="#"> Google</a>
+                                       <!-- </a> -->
+                                  </div>
+                              </div>
+
+                              {% else %}
+
+<h4 class="info-text">You're already logged in!</h4>
+<div class="col-sm-10 col-sm-offset-5">
+
+<a href="{{ url_for('logout') }}" target="_blank"class='btn btn-finish center-block btn-fill btn-info btn-wd span7 text-center'>Logout</a>
+</div>
+
+                              {% endif %}
+
+                            </div>
+                           
+
+                     
+                        </div>
+                        <div class="wizard-footer">
+                           </div>
+                        </div>	
+                </div>
+                </form>
+            </div> <!-- wizard container -->
+        </div>
+        </div><!-- end row -->
+    </div> <!--  big container -->
+    
+    
+     <div class="footer">
+      <div class="container">
+        <a href="{{ url_for('.index') }}">
+        <img class="img-responsive" src = "{{ url_for('static', filename='assets/logo/logo_b.png') }}"> </a>
+
+             <!-- Test Foot -->
+      </div>
+    </div>
+    
+    <div class="fixed-plugin">
+        <div class="dropdown open">
+          <a href="#" data-toggle="dropdown"> 
+            <i class="fa fa-cog fa-2x"> </i>
+          </a>
+          <ul class="dropdown-menu">
+           <li>
+                <a href="{{ url_for('.register') }}" target="_blank" class="btn btn-default btn-fill">Register</a>
+            </li>
+             <li>
+                <a href="{{ url_for('.login') }}" target="_blank" class="btn btn-default btn-fill">Standard Login</a>
+            </li>
+            <li>
+                <a href="#" target="_blank" class="btn btn-info btn-fill">Facebook Login </a>
+            </li>
+            <li>
+                <a href="#" target="_blank" class="btn btn-info btn-fill">Twitter Login </a>
+            <li>
+                <a href="#" target="_blank" class="btn btn-info btn-fill">Google Login</a>
+            </li>
+            <li><a></a></li>
+          </ul>
+        </div>
+     </div>
+
+
+</div>
+
+</body>
+
+    <script src="{{ url_for('static', filename='wizard/js/jquery-1.10.2.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('static', filename='wizard/js/bootstrap.min.js') }}" type="text/javascript"></script>
+		
+	<!--   plugins 	 -->
+	<script src="{{ url_for('static', filename='wizard/js/jquery.bootstrap.wizard.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('static', filename='wizard/js/wizard.js') }}"></script>
+	
+</html>

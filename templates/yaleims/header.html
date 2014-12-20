@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yale Intramurals">
+    <meta name="author" content="Summer Wu">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='yaleims/img/yalefavicon.ico') }}" />
+
+    <title>Yale Intramurals</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='yaleims/css/style.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Kameron:700' rel='stylesheet' type='text/css'>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <img id="logo" src="{{ url_for('static', filename='yaleims/img/logo.png') }}">
+
+    <div id="title">
+      <h1>Yale Intramurals</h1>
+      <h2>The Quest for Glory... The Quest for the Tyng</h2>
+    </div>
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-inverse transparent" role="navigation">
+      <div class="container-fluid">
+        <!-- All links get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#imlinks">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="imlinks">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Master Schedule</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Colleges <span class="caret"></span></a>
+              <ul class="dropdown-menu inverse-dropdown" role="menu">
+                <li><a href="#">Berkeley</a></li>
+                <li><a href="#">Branford</a></li>
+                <li><a href="#">Calhoun</a></li>
+                <li><a href="#">Davenport</a></li>
+                <li><a href="#">Ezra Stiles</a></li>
+                <li><a href="#">Jonathan Edwards</a></li>
+                <li><a href="#">Morse</a></li>
+                <li><a href="#">Pierson</a></li>
+                <li><a href="#">Saybrook</a></li>
+                <li><a href="#">Silliman</a></li>
+                <li><a href="#">Timothy Dwight</a></li>
+                <li><a href="#">Trumbull</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Dead Teams</a></li>
+            <li><a href="#">Archives</a></li>
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Rules</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>

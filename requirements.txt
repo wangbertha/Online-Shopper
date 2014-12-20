@@ -1,0 +1,11 @@
+Flask==0.10.1
+Jinja2==2.7.3
+MarkupSafe==0.23
+Werkzeug==0.9.6
+gspread==0.2.2
+itsdangerous==0.24
+pyasn1==0.1.7
+pycrypto==2.6.1
+python-keyczar==0.71c
+wsgiref==0.1.2
+gunicorn==19.0.0
